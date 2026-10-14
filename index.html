@@ -1,132 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amber Rivera | Software Developer</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d1b2a;
-            color: #e0e1dd;
-        }
-        header {
-            background-color: #1b263b;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 42px;
-            color: #e0e1dd;
-        }
-        header p {
-            font-size: 18px;
-            color: #778da9;
-        }
-        nav {
-            background-color: #415a77;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #e0e1dd;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        nav a:hover {
-            color: #f0f4f8;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
-        h2 {
-            color: #f0f4f8;
-            border-bottom: 2px solid #778da9;
-            padding-bottom: 10px;
-        }
-        .project {
-            background-color: #1b263b;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-        footer {
-            background-color: #1b263b;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            color: #778da9;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amber Rivera | Software Developer & Cloud Security Enthusiast</title>
+
+<style>
+
+:root{
+    --bg:#09090b;
+    --card:rgba(24,24,27,.65);
+    --text:#fafafa;
+    --muted:#a1a1aa;
+    --purple:#8b5cf6;
+    --cyan:#06b6d4;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+/* Ambient Background */
+
+.blur-purple{
+    position:fixed;
+    width:500px;
+    height:500px;
+    top:-150px;
+    right:-150px;
+    background:var(--purple);
+    filter:blur(180px);
+    opacity:.18;
+    z-index:-1;
+}
+
+.blur-cyan{
+    position:fixed;
+    width:500px;
+    height:500px;
+    bottom:-150px;
+    left:-150px;
+    background:var(--cyan);
+    filter:blur(180px);
+    opacity:.15;
+    z-index:-1;
+}
+
+/* Navigation */
+
+nav{
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(16px);
+    background:rgba(9,9,11,.75);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:18px;
+    text-align:center;
+    z-index:100;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 18px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--cyan);
+}
+
+/* Hero Section */
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+    padding:40px 20px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    color:var(--cyan);
+    font-weight:500;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    color:var(--muted);
+    font-size:1.15rem;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    margin:10px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--purple),var(--cyan));
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Sections */
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+h3{
+    font-size:2rem;
+    margin-bottom:25px;
+}
+
+.section-text{
+    color:var(--muted);
+    max-width:900px;
+}
+
+/* Cards */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.08);
+    padding:25px;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(139,92,246,.45);
+}
+
+.card h4{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+/* Skills */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.skill{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    padding:10px 16px;
+    border-radius:999px;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+a{
+    color:var(--cyan);
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.hero h2{
+    font-size:1.15rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-<header>
-    <h1>Amber Rivera</h1>
-    <p>Software Developer • Automation • Python • C++ • Computer Science Graduate Student</p>
-</header>
+<div class="blur-purple"></div>
+<div class="blur-cyan"></div>
 
 <nav>
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
-    <h2>About Me</h2>
+<section class="hero">
+
+    <h1>Amber Rivera</h1>
+
+    <h2>Software Developer • Cloud & Security Enthusiast</h2>
+
     <p>
-        I’m a Software Developer with experience in automation, Discord bot development, workflow optimization,
-        and full‑stack academic projects. I hold a Bachelor’s degree in Software Development and am currently
-        pursuing my Master of Science in Computer Science. I enjoy building tools that solve real problems,
-        improving systems, and learning new technologies.
+        Building software, automating workflows, and exploring the technology
+        behind cloud infrastructure, cybersecurity, and modern gaming platforms.
     </p>
+
+    <div class="buttons">
+
+        <a class="btn primary" href="NEWESTupdatedRES.pdf">
+            Download Resume
+        </a>
+
+        <a class="btn secondary"
+           href="https://www.linkedin.com/in/devamber26/"
+           target="_blank">
+            LinkedIn
+        </a>
+
+        <a class="btn secondary"
+           href="https://github.com/KornyKornzz"
+           target="_blank">
+            GitHub
+        </a>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <h3>About Me</h3>
+
+    <p class="section-text">
+        I'm a Software Development student at Herzing University pursuing a
+        Bachelor of Science in Software Development. My interests include
+        software engineering, cloud computing, cybersecurity, DevOps,
+        networking, and gaming technology.
+
+        Through academic and personal projects, I've worked with Python,
+        Java, Git, Linux, AWS, APIs, automation workflows, and network
+        diagnostics tools.
+
+        As a long-time Call of Duty player, I am particularly interested
+        in backend systems, cloud infrastructure, anti-cheat technologies,
+        platform reliability, and the engineering challenges involved in
+        supporting millions of players worldwide.
+    </p>
+
+</section>
+
+<section id="skills">
+
+<h3>Technical Skills</h3>
+
+<div class="skills">
+
+    <div class="skill">Python</div>
+    <div class="skill">Java</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">SQL</div>
+    <div class="skill">AWS</div>
+    <div class="skill">Git</div>
+    <div class="skill">GitHub</div>
+    <div class="skill">Docker</div>
+    <div class="skill">Linux</div>
+    <div class="skill">Wireshark</div>
+    <div class="skill">Networking</div>
+    <div class="skill">Cybersecurity</div>
+    <div class="skill">APIs</div>
+    <div class="skill">Automation</div>
+
+</div>
+
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
 
-    <div class="project">
-        <h3>Discord Automation Bots</h3>
-        <p>Developed bots that automate news feeds, filter spam, manage channels, and improve workflow efficiency.</p>
-    </div>
+<h3>Featured Projects</h3>
 
-    <div class="project">
-        <h3>Inventory Management System (C++)</h3>
-        <p>OOP‑based system with product tracking, stock updates, and user interaction features.</p>
-    </div>
+<div class="grid">
 
-    <div class="project">
-        <h3>Automated File Organizer (Python)</h3>
-        <p>Script that sorts files into categorized folders to reduce manual sorting time.</p>
-    </div>
+<div class="card">
 
-    <div class="project">
-        <h3>Portfolio Website</h3>
-        <p>Responsive personal website hosted on GitHub Pages.</p>
-    </div>
+<h4>Network Integrity Analyzer</h4>
+
+<p>
+Python-based project focused on monitoring packet-loss trends,
+analyzing connectivity issues, and visualizing performance data.
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>Discord Automation Platform</h4>
+
+<p>
+Automation workflows utilizing APIs, filtering systems,
+and community-management tools to improve information delivery.
+</p>
+
+</div>
+
+<div class="card">
+
+<h4>Developer Portfolio</h4>
+
+<p>
+Custom GitHub Pages portfolio showcasing technical skills,
+projects, education, and professional growth.
+</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="resume">
-    <h2>Resume</h2>
-    <p>
-        <a href="NEWESTupdatedRES.pdf" style="color:#a8dadc;">Download My Resume</a>
-    </p>
+<section id="education">
+
+<h3>Education</h3>
+
+<div class="card">
+
+<h4>Bachelor of Science in Software Development</h4>
+
+<p>
+Herzing University<br>
+Expected Graduation: 2026
+</p>
+
+<br>
+
+<h4>Future Graduate Study</h4>
+
+<p>
+Master of Science in Computer Science (Planned)
+</p>
+
+</div>
+
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: rivamber.dev@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/devamber26" style="color:#a8dadc;">linkedin.com/in/devamber26</a></p>
+
+<h3>Let's Connect</h3>
+
+<div class="card">
+
+<p>
+📧 rivamber.dev@gmail.com
+</p>
+
+<br>
+
+<p>
+💼 LinkedIn:
+<a href="https://www.linkedin.com/in/devamber26/" target="_blank">
+linkedin.com/in/devamber26
+</a>
+</p>
+
+<br>
+
+<p>
+🌐 Portfolio:
+<a href="https://kornykornzz.github.io/rivamber.github.io/" target="_blank">
+kornykornzz.github.io
+</a>
+</p>
+
+</div>
+
 </section>
 
 <footer>
-    © 2026 Amber Rivera — Built with GitHub Pages
+
+© 2026 Amber Rivera | Software Developer
+
 </footer>
 
 </body>
